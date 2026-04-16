@@ -20,13 +20,31 @@ body {
     position: relative;
     height: 100vh;
     min-height: 800px;
-    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
-                url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+    /* Gradient overlay only - hero image moved into HTML for preload/responsive control */
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
     display: flex;
     align-items: center;
+}
+
+/* Hero background image inserted in HTML for preload and responsive srcset */
+.hero-bg-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 0;
+    filter: brightness(0.5);
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+}
+
+.hero-section > .container { /* ensure container content sits above bg */
+    position: relative;
+    z-index: 1;
 }
 
 /* Custom Navbar */
@@ -684,6 +702,31 @@ h1 {
         width: 15px !important;
         height: 15px !important;
         margin: 0 3px !important;
+    }
+}
+
+/* iOS / Mobile Safari fixes
+   Backgrounds with `background-attachment: fixed` render poorly on iOS.
+   Force `scroll` on touch devices / WebKit where needed and enable
+   a few rendering hints to avoid flicker.
+*/
+@supports (-webkit-overflow-scrolling: touch) {
+    .hero-section,
+    .modern-vm-section,
+    .footer-main::before {
+        background-attachment: scroll !important;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        transform: translate3d(0,0,0);
+    }
+}
+
+/* Fallback for other touch devices (pointer coarse, no hover) */
+@media (hover: none) and (pointer: coarse) {
+    .hero-section,
+    .modern-vm-section,
+    .footer-main::before {
+        background-attachment: scroll !important;
     }
 }
 

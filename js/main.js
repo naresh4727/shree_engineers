@@ -58,3 +58,16 @@ $(function() {
 		});
 	}
 });
+
+// Improve image loading behavior for non-critical images
+document.addEventListener('DOMContentLoaded', function() {
+    try {
+        // Lazy-load product slider images to reduce LCP impact
+        document.querySelectorAll('.products-slider img, .product-media img').forEach(function(img) {
+            if (!img.getAttribute('loading')) img.setAttribute('loading', 'lazy');
+            if (!img.getAttribute('decoding')) img.setAttribute('decoding', 'async');
+        });
+    } catch (e) {
+        // ignore
+    }
+});
