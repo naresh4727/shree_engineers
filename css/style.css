@@ -4,6 +4,44 @@
     --text-white: #ffffff;
 }
 
+/* --- Custom Scrollbar Design --- */
+
+/* Width and Height of the scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+/* Track (The background of the scrollbar) */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+/* Handle/Thumb (The draggable part) */
+::-webkit-scrollbar-thumb {
+    background: var(--primary-orange); /* Aapka theme orange color */
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #e68a00; /* Thoda dark orange hover par */
+}
+
+/* Firefox Support */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary-orange) #f1f1f1;
+}
+
+/* Selection Color (Jab user text select kare) */
+::selection {
+    background-color: var(--primary-orange);
+    color: #fff;
+}
+
 html{
     scroll-behavior: smooth;
 }
@@ -800,7 +838,7 @@ h1 {
 
 .client-logo-card {
     background: #ffffff;
-    border: 1px solid #eee;
+    border: 1px solid transparent;
     height: 200px;
     display: flex;
     align-items: center;
@@ -808,16 +846,17 @@ h1 {
     padding: 20px;
     transition: all 0.4s ease-in-out;
     border-radius: 8px;
-    filter: grayscale(100%); /* Shuruwat mein black and white */
-    opacity: 0.7;
+    /* filter: grayscale(100%); 
+    opacity: 0.7; */
 }
 
 .client-logo-card:hover {
     filter: grayscale(0%); /* Hover par color */
     opacity: 1;
     border-color: var(--primary-orange);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+     box-shadow: var(--bs-box-shadow-sm) !important;
     transform: translateY(-5px);
+
 }
 
 .client-logo-card img {
