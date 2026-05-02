@@ -101,7 +101,6 @@ body {
     height: 8px;
     width: 8px;
     background-color: var(--primary-orange);
-    border-radius: 50%;
     display: inline-block;
     margin-right: 8px;
 }
@@ -635,7 +634,7 @@ h1 {
     justify-content: center;
     overflow: hidden;
     border-radius: 8px;
-    background: #f8f9fb;
+    background: #fff;
 }
 
 .product-media img {
@@ -671,8 +670,13 @@ h1 {
     color: var(--primary-orange) !important;
 }
 
+.slick-dots{
+        bottom: -40px !important;
+}
+
 @media (max-width: 768px) {
     .product-media { height: 160px; }
+    .slick-dots{bottom: -60px !important;}
 }
 
 @media (max-width: 575px) {
@@ -732,3 +736,380 @@ h1 {
 
 /* End products slider */
 
+
+
+/* --- Our Clients Section Styles --- */
+/* .clients-section {
+    border-top: 1px solid #f0f0f0;
+} */
+
+/* --- Stats Counter Styles --- */
+.stats-counter-section {
+    background-color: #ffffff;
+}
+
+.counter-box {
+    padding: 20px;
+    transition: 0.3s;
+}
+
+.counter-icon-wrap {
+    width: 90px;
+    height: 90px;
+    background-color: #fff5f0; /* Very light orange from image */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px; /* Slightly rounded as per image */
+    flex-shrink: 0;
+}
+
+.counter-icon-wrap i {
+    font-size: 40px;
+    color: var(--primary-orange); /* Aapka primary orange color */
+}
+
+.counter-content p {
+    font-size: 16px;
+    letter-spacing: 0.5px;
+}
+
+.counter-value {
+    font-size: 48px;
+    color: #1a1a1a;
+    line-height: 1;
+    margin-top: 5px;
+}
+
+/* Responsive Fix */
+@media (max-width: 767px) {
+    .counter-box {
+        text-align: left;
+    }
+    .counter-value {
+        font-size: 38px;
+    }
+    .counter-icon-wrap {
+        width: 70px;
+        height: 70px;
+    }
+    .counter-icon-wrap i {
+        font-size: 30px;
+    }
+}
+
+.client-logo-card {
+    background: #ffffff;
+    border: 1px solid #eee;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    transition: all 0.4s ease-in-out;
+    border-radius: 8px;
+    filter: grayscale(100%); /* Shuruwat mein black and white */
+    opacity: 0.7;
+}
+
+.client-logo-card:hover {
+    filter: grayscale(0%); /* Hover par color */
+    opacity: 1;
+    border-color: var(--primary-orange);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    transform: translateY(-5px);
+}
+
+.client-logo-card img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+/* Matching UI square bullets from previous sections */
+.clients-section .square-orange {
+    width: 10px;
+    height: 10px;
+    background-color: var(--primary-orange);
+    display: inline-block;
+}
+
+/* Mobile Responsive Adjustments */
+@media (max-width: 575px) {
+    .client-logo-card {
+        height: 150px;
+        padding: 15px;
+    }
+}
+
+
+/* --- Industrial Feedback Styles --- */
+.feedback-card {
+    background-color: #fff; /* Light grey background from image */
+    padding: 30px;
+    border-radius: 20px;
+    height: 100%;
+    transition: 0.3s;
+    border: 1px solid transparent;
+    box-shadow: var(--bs-box-shadow-sm) !important;
+}
+
+.feedback-card:hover {
+    background-color: #fff;
+    border-color: var(--primary-orange);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.user-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.quote-icon {
+    font-size: 30px;
+    color: var(--primary-orange);
+    opacity: 0.6;
+}
+
+.stars i {
+    color: var(--primary-orange);
+    font-size: 13px;
+    margin-right: 2px;
+}
+
+.feedback-image-box img {
+    min-height: 300px;
+    width: 100%;
+}
+
+.feedback-image-box.h-100 {
+    box-shadow: var(--bs-box-shadow-sm) !important;
+    border-radius: var(--bs-border-radius-xl) !important;
+}
+
+/* Typography fix to match industrial look */
+.feedback-section h2 {
+    line-height: 1.2;
+    letter-spacing: -1px;
+}
+
+/* Responsive Fixes */
+@media (max-width: 991px) {
+    .feedback-image-box {
+        margin-top: 20px;
+        height: 400px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .feedback-card {
+        padding: 20px;
+    }
+    .feedback-section h2 {
+        font-size: 2rem;
+    }
+}
+
+/* --- Contact Quote Section Styles --- */
+.contact-quote-section {
+    position: relative;
+    padding: 100px 0;
+    overflow: hidden;
+    background-color: #1a1a1a; /* Fallback for iOS */
+    border-top: 5px solid var(--primary-orange);
+    border-bottom: 5px solid var(--primary-orange);
+}
+
+/* iOS Background Fix: Instead of fixed attachment, use a pseudo-element */
+.contact-quote-section::before {
+    content: "";
+    position: absolute;
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%;
+    background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                      url('https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+    /* Fixed removed for iOS compatibility, but kept cover for look */
+    z-index: 0;
+}
+
+/* Glass Info Boxes (Left Side) */
+.glass-info-box {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); /* Safari Fix */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 25px;
+    border-radius: 4px;
+    position: relative;
+    z-index: 1;
+}
+
+.glass-icon {
+    font-size: 24px;
+    color: var(--primary-orange);
+}
+
+/* White Form Card (Right Side) */
+.quote-form-card {
+    background: #fff;
+    padding: 60px;
+    border-radius: 8px;
+    position: relative;
+    z-index: 1;
+}
+
+.form-group-custom {
+    position: relative;
+    border-bottom: 1px solid #ddd;
+}
+
+.form-group-custom i {
+    position: absolute;
+    left: 0;
+    top: 15px;
+    color: var(--primary-orange);
+    font-size: 18px;
+}
+
+.form-group-custom .form-control {
+    border: none !important;
+    padding: 12px 10px 12px 35px !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    border-radius: 0;
+    font-size: 15px;
+}
+
+.form-group-custom .form-control:focus {
+    color: #000;
+}
+
+.btn-quote-submit {
+    background-color: var(--primary-orange);
+    color: #fff;
+    border: none;
+    padding: 15px 40px;
+    border-radius: 8px;
+    font-weight: 700;
+    text-transform: none;
+    transition: 0.3s;
+}
+
+.btn-quote-submit:hover {
+    background-color: #e68a00;
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+    .quote-form-card {
+        padding: 40px 30px;
+        margin-top: 30px;
+    }
+    .contact-quote-section {
+        padding: 60px 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .quote-form-card h2 {
+        font-size: 22px;
+    }
+    .contact-quote-section::before {
+        background-attachment: scroll !important; /* Force scroll on small screens */
+    }
+}
+
+/* --- FAQ Section Styles --- */
+.custom-faq .accordion-item {
+    border-radius: 4px !important;
+    border-color: #eee !important;
+}
+
+.custom-faq .accordion-button {
+    padding: 25px 30px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #1a1a1a;
+    background-color: transparent !important;
+    box-shadow: none !important;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* Plus/Minus Circular Icon */
+.custom-faq .icon-wrap {
+    width: 32px;
+    height: 32px;
+    border: 1px solid var(--primary-orange);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    flex-shrink: 0;
+}
+
+/* Plus Horizontal Line */
+.custom-faq .icon-wrap::before {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 2px;
+    background-color: var(--primary-orange);
+}
+
+/* Plus Vertical Line */
+.custom-faq .icon-wrap::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 12px;
+    background-color: var(--primary-orange);
+    transition: 0.3s;
+}
+
+/* Jab active ho (Expanded) */
+.custom-faq .accordion-button:not(.collapsed) {
+    color: var(--primary-orange);
+}
+
+/* Jab expanded ho toh vertical line hide kar do (Minus ban jayega) */
+.custom-faq .accordion-button:not(.collapsed) .icon-wrap::after {
+    transform: rotate(90deg);
+    opacity: 0;
+}
+
+/* Remove default Bootstrap arrow */
+.custom-faq .accordion-button::after {
+    display: none;
+}
+
+.custom-faq .accordion-body {
+    padding: 0 30px 25px 75px; /* Aligned with text, not icon */
+    line-height: 1.8;
+}
+
+span.text-orange.fw-bold.text-uppercase {
+    letter-spacing: 1px !important;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .custom-faq .accordion-button {
+        font-size: 16px;
+        padding: 20px;
+    }
+    .custom-faq .accordion-body {
+        padding: 0 20px 20px 65px;
+        font-size: 14px;
+    }
+}

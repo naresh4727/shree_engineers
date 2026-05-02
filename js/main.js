@@ -71,3 +71,46 @@ document.addEventListener('DOMContentLoaded', function() {
         // ignore
     }
 });
+
+// Numerical Counter Animation
+const startCounter = () => {
+    const counters = document.querySelectorAll('.counter-value');
+    const speed = 200; // Jitna kam, utna fast counting
+
+    counters.forEach(counter => {
+        const updateCount = () => {
+            const target = +counter.getAttribute('data-target');
+            const count = +counter.innerText;
+            const inc = target / speed;
+
+            if (count < target) {
+                counter.innerText = Math.ceil(count + inc);
+                setTimeout(updateCount, 15);
+            } else {
+                counter.innerText = target;
+            }
+        };
+        updateCount();
+    });
+};
+
+// Intersection Observer to trigger when visible on screen
+const observerOptions = {
+    threshold: 0.5 // Jab 50% section dikhega tab start hoga
+};
+
+const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            startCounter();
+            observer.unobserve(entry.target); // Ek hi baar animate hoga
+        }
+    });
+}, observerOptions);
+
+const statsSection = document.querySelector('.stats-counter-section');
+if(statsSection) {
+    observer.observe(statsSection);
+}
+
+
